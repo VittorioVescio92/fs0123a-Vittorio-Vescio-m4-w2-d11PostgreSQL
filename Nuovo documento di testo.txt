@@ -1,0 +1,32 @@
+Esercizio 1
+
+SELECT nome, cognome
+	FROM public."Clienti"
+	WHERE EXTRACT (YEAR FROM data_nascita) = 1982;
+
+Esercizio 2
+
+SELECT IVA, COUNT(*)
+FROM public."Fatture"
+WHERE IVA = 20
+GROUP BY IVA
+
+Esercizio 3
+
+SELECT EXTRACT(YEAR FROM data_fattura) AS anno, SUM(importo), COUNT(*)
+FROM public."Fatture"
+GROUP BY anno;
+
+Esercizio 4
+
+SELECT *
+FROM public."Prodotti"
+WHERE (in_produzione = 'true' OR in_commercio = 'true')
+AND EXTRACT(YEAR FROM data_attivazione) = 2017;	
+
+Esercizio 5
+
+SELECT EXTRACT(YEAR FROM data_fattura) AS anno, numero_fattura, COUNT(*)
+FROM public."Fatture"
+WHERE iva = 20
+GROUP BY anno, numero_fattura;
