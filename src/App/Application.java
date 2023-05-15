@@ -29,6 +29,7 @@ public class Application {
 
 		insertStudent(student1);
 		insertStudent(student2);
+		deleteStudent(17);
 	}
 
 	public static void insertStudent(Student student) {
@@ -46,6 +47,18 @@ public class Application {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void deleteStudent(int id) {
+		String sqlDeleteOneStudent = "DELETE FROM school_students WHERE id = ?";
+		try {
+			PreparedStatement stmtDeleteOneStudent = conn.prepareStatement(sqlDeleteOneStudent);
+			stmtDeleteOneStudent.setInt(1, id);
+			stmtDeleteOneStudent.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }

@@ -13,7 +13,7 @@ public class Student {
 	private double max_voto;
 
 	public Student(String name, String lastname, String gender, Date birthdate, double min_voto, double max_voto) {
-		setName(lastname);
+		setName(name);
 		setLastname(lastname);
 		setGender(gender);
 		setBirthdate(birthdate);
